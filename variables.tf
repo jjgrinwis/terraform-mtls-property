@@ -10,11 +10,22 @@ variable "aka_products" {
   }
 }
 
+variable "cpcode" {
+  description = "Your unique Akamai CPcode name to be used with your property"
+  type        = string
+  default     = "jgrinwis"
+}
 # akamai product to use
 variable "product_name" {
   description = "The Akamai delivery product name"
   type        = string
   default     = "ion"
+}
+
+variable "domain_suffix" {
+  description = "edgehostname suffix"
+  type        = string
+  default     = "edgekey.net"
 }
 
 # IPV4, IPV6_PERFORMANCE or IPV6_COMPLIANCE
@@ -24,6 +35,7 @@ variable "ip_behavior" {
   default     = "IPV6_COMPLIANCE"
 }
 
+# below some required input vars
 variable "group_name" {
   description = "Akamai group to use this resource in"
   type        = string
@@ -37,4 +49,15 @@ variable "email" {
 variable "hostname" {
   description = "Name of the hostname but also user for property and edgehostname"
   type        = string
+}
+
+variable "origin_hostname" {
+  description = "Name of the origin hostname to connect to"
+  type        = string
+}
+
+variable "rule_format" {
+  description = "Select a supported rule format https://techdocs.akamai.com/terraform/docs/rule-format-changes"
+  type        = string
+  default     = "v2025-02-18"
 }
