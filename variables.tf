@@ -61,3 +61,16 @@ variable "rule_format" {
   type        = string
   default     = "v2025-02-18"
 }
+
+variable "mtls_certificate" {
+  description = "mTLS certificate to use with this property"
+  type        = string
+}
+
+variable "host_mappings" {
+  description = "List of hostname to origin mappings"
+  type = list(object({
+    hostname = string
+    origin   = string
+  }))
+}
