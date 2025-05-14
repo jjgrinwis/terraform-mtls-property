@@ -11,3 +11,7 @@ terraform {
 data "akamai_contract" "contract" {
   group_name = var.group_name
 }
+
+resource "terraform_data" "replacement" {
+  input = data.akamai_contract.contract.group_id
+}
