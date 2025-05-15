@@ -7,11 +7,6 @@ terraform {
   }
 }
 
-provider "akamai" {
-  edgerc         = "~/.edgerc"
-  config_section = "gss-demo"
-}
-
 locals {
   # to make life as easy as possible, customer can just provide a comma separated list of hostnames.
   # script will make some nice list of of it
