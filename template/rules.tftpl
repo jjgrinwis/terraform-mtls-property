@@ -15,39 +15,6 @@ ${jsonencode(
                 "options": {
                   "cacheKeyHostname": "REQUEST_HOST_HEADER",
                   "compress": true,
-                  "customCertificateAuthorities": [
-                    {
-                      "canBeCA": true,
-                      "canBeLeaf": true,
-                      "issuerRDNs": {
-                        "C": "NL",
-                        "CN": "lpe-central-certificate-manager-root-ca",
-                        "O": "Koninklijke PostNL B.V."
-                      },
-                      "notAfter": 1816182144000,
-                      "notBefore": 1658412144000,
-                      "pemEncodedCert": "-----BEGIN CERTIFICATE-----\nMIIGSTCCBDGgAwIBAgIRAJ38dO7n1S5ET7qUwVdkLOcwDQYJKoZIhvcNAQELBQAw\nYTELMAkGA1UEBhMCTkwxIDAeBgNVBAoMF0tvbmlua2xpamtlIFBvc3ROTCBCLlYu\nMTAwLgYDVQQDDCdscGUtY2VudHJhbC1jZXJ0aWZpY2F0ZS1tYW5hZ2VyLXJvb3Qt\nY2EwHhcNMjIwNzIxMTQwMjI0WhcNMjcwNzIxMTUwMjI0WjBvMQswCQYDVQQGEwJO\nTDEgMB4GA1UECgwXS29uaW5rbGlqa2UgUG9zdE5MIEIuVi4xPjA8BgNVBAMMNWxw\nZS1jZW50cmFsLWNlcnRpZmljYXRlLW1hbmFnZXItc3Vib3JkaW5hdGUtYWthbWFp\nLWNhMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAwq3CVmHxWFVEafgj\n+3A3lGzdMt4IS55dEYdY2sfJh5wN5zpA5yrDbVXebc4Utq/1e+JV03AxKTlbqcep\nBVr+ddr+47n7eXu2Wc2/Ppi1rHjTFhdfjAjpLs4uUbykCeG46BrHtVa6Y6z9qJbv\nC1MlgQqSkVnIRPEGlC1qyfze5P8f3Oh51k4mNKUbu11Rlk5h7XeBUZ5nwHzMI6Kp\nfgnBD3YfEl0/qgkgii6EP3zWBj5VKYVBxZAg8U/9cQO0b29sXJNn97JOa/0cL5bH\nOayaCDBifU3Y7mMIniQkrzJwNSPcS8AbZKnTxLwvtwsBAtyGv6b4EVlXNIK9F3KO\nfyLZW9w8818by/zzjP/NQAsdSwMk1F+V+8FUP9Dt9+GZDmLTN51iul94LpOuMt8c\nxZXVdU+D5kZySD2AE/rxtoQkU1iYoa+3h3YMvXXE3ePnw/mJlej1a/6AXG8xfEKp\nq3Q1O9BoeC6drZKYorkZa1TbPJw1tv6p3+eNYLNiszLqKWH66V3ugQEtejiGiFTJ\nWbxPGpoHBUSMI0KN20f+7kNCVGkqpbSs6XlnV1OE48Rgq/b3memLG1BbDgfeUTFr\ncD9hFM2/E1hCNM6ME4klX2qCxRyYRanRNL3JuUXOIjH5XW/OvZ+nNoun4RxsX1N6\nPxU0YM8Aa0q0nPunBNNdAcE7qYsCAwEAAaOB7TCB6jASBgNVHRMBAf8ECDAGAQH/\nAgEAMB8GA1UdIwQYMBaAFHFzRGU+PhO1FppXcGqnZh0dZptDMB0GA1UdDgQWBBSU\nPTmyW5OqK4ArV+2O2stF5Hr1MTAOBgNVHQ8BAf8EBAMCAYYwgYMGA1UdHwR8MHow\neKB2oHSGcmh0dHA6Ly9scGUtY2VudHJhbC1jZXJ0aWZpY2F0ZS1tYW5hZ2VyLWNy\nbC5zMy5ldS13ZXN0LTEuYW1hem9uYXdzLmNvbS9jcmwvMWZlNzg3NzMtNDRlYy00\nNmJkLWE4YzQtNGY3OTllOWQwOWFkLmNybDANBgkqhkiG9w0BAQsFAAOCAgEAICtF\nhHcoJiSqxbDb6+K51gy65rZuba/JFeXdTtbGdRIbylOVWzpZI/XtyyVci2mTEmeQ\nEXze7YBk5rlspdFD02zZ/DnjQwi8dcvyUIwdQW+8sv5HX/gBWDCgX2mWSdF/7T7J\niCZdNbyb3By/a/XN1e8ziVChl2mIJCURlZmMjpb8kkBio7BqAe+ESFc2aCdMTpDG\n/8PwSSCBpmlfKiSjqS/kYb/nLmHafbCrcY0qF6AxcKoapvSVuKVe46uPyNwNMIsU\n4u+ykOrbH2vCrPhnFSl1rStYcphVY6jk27SW1HfZCgl2bokmPHSf0gEG5JNgCULd\nAT0CkIDRgs0/2HWdNOUII5TdBW67VyfXk/TgZlGMF6zBSEpuwjKqNxomcx52ERaC\nydRcZsSHdbIvOdSuVI7NdlTbjt6QOHMF0fHCidcf9ZtKmtKv2zwTWTu1G4iPh8lC\nfuSp4eekWB+Op3NwsgkSmKQSkjFaz9yu48ShLUlCWApHajhFnCOLYzQ1Fcs/kUb0\nZ4KmUxDN2gbq+vwXFFC2lQdeRkPOQMElga1bO7nQJbNgULRqSgQddkT64vac9xgO\no+TPMVPBBh0r4G/qvC09cxDgXP3C7gl1ZnelHYCWOVjpYYQqg4AaPQyIThHQFiU5\nZhBrqkeUPQ3WNDRU7ab628/j6bKpFD/EyAgvfkE=\n-----END CERTIFICATE-----\n",
-                      "publicKey": "MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAwq3CVmHxWFVEafgj+3A3lGzdMt4IS55dEYdY2sfJh5wN5zpA5yrDbVXebc4Utq/1e+JV03AxKTlbqcepBVr+ddr+47n7eXu2Wc2/Ppi1rHjTFhdfjAjpLs4uUbykCeG46BrHtVa6Y6z9qJbvC1MlgQqSkVnIRPEGlC1qyfze5P8f3Oh51k4mNKUbu11Rlk5h7XeBUZ5nwHzMI6KpfgnBD3YfEl0/qgkgii6EP3zWBj5VKYVBxZAg8U/9cQO0b29sXJNn97JOa/0cL5bHOayaCDBifU3Y7mMIniQkrzJwNSPcS8AbZKnTxLwvtwsBAtyGv6b4EVlXNIK9F3KOfyLZW9w8818by/zzjP/NQAsdSwMk1F+V+8FUP9Dt9+GZDmLTN51iul94LpOuMt8cxZXVdU+D5kZySD2AE/rxtoQkU1iYoa+3h3YMvXXE3ePnw/mJlej1a/6AXG8xfEKpq3Q1O9BoeC6drZKYorkZa1TbPJw1tv6p3+eNYLNiszLqKWH66V3ugQEtejiGiFTJWbxPGpoHBUSMI0KN20f+7kNCVGkqpbSs6XlnV1OE48Rgq/b3memLG1BbDgfeUTFrcD9hFM2/E1hCNM6ME4klX2qCxRyYRanRNL3JuUXOIjH5XW/OvZ+nNoun4RxsX1N6PxU0YM8Aa0q0nPunBNNdAcE7qYsCAwEAAQ==",
-                      "publicKeyAlgorithm": "RSA",
-                      "publicKeyFormat": "X.509",
-                      "selfSigned": false,
-                      "serialNumber": "209999625834148027554259422421933370599",
-                      "sha1Fingerprint": "3afb40fc5e0a81db10bda32359910c2a9e13b899",
-                      "sigAlgName": "SHA256WITHRSA",
-                      "subjectAlternativeNames": [],
-                      "subjectCN": "lpe-central-certificate-manager-subordinate-akamai-ca",
-                      "subjectRDNs": {
-                        "C": "NL",
-                        "CN": "lpe-central-certificate-manager-subordinate-akamai-ca",
-                        "O": "Koninklijke PostNL B.V."
-                      },
-                      "version": 3
-                    }
-                  ],
-                  "customValidCnValues": [
-                    "{{Origin Hostname}}",
-                    "{{Forward Host Header}}"
-                  ],
                   "enableTrueClientIp": true,
                   "forwardHostHeader": "REQUEST_HOST_HEADER",
                   "hostname": "${k}.cname.mendix.net",
@@ -63,11 +30,8 @@ ${jsonencode(
                   "tlsVersionTitle": "",
                   "trueClientIpClientSetting": false,
                   "trueClientIpHeader": "True-Client-IP",
-                  "verificationMode": "CUSTOM",
-                  "customCertificates": [],
-                  "standardCertificateAuthorities": [
-                    "akamai-permissive"
-                  ]
+                  "verificationMode": "PLATFORM_SETTINGS",
+                  "customCertificates": []
                 }
               }
             ],

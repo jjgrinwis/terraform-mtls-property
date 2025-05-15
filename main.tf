@@ -7,7 +7,10 @@ terraform {
   }
 }
 
-
+provider "akamai" {
+  edgerc         = "~/.edgerc"
+  config_section = "gss-demo"
+}
 
 locals {
   # to make life as easy as possible, customer can just provide a comma separated list of hostnames.
@@ -55,7 +58,6 @@ resource "akamai_property" "aka_property" {
   group_id    = data.akamai_contract.contract.group_id
   product_id  = resource.akamai_cp_code.cp_code.product_id
   rule_format = "latest"
-
 
   # A dynamic block of hostnames.
   dynamic "hostnames" {
