@@ -1,9 +1,13 @@
 output "hostnames" {
   description = "Hostnames added to the property"
-  value       = var.hostnames
+  value       = local.hostnames
 }
 
-output "name" {
+output "dv_records" {
+  description = "Our CNAME records for SBD will also contain the deployment status"
+  value       = local.dv_records
+}
+output "proprty_name" {
   description = "Name the property and cpcode"
-  value       = local.name
+  value       = local.property_name
 }

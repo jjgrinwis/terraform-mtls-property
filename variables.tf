@@ -20,7 +20,7 @@ variable "cpcode" {
 variable "product_name" {
   description = "The Akamai delivery product name"
   type        = string
-  default     = "ion"
+  default     = "dsa"
 }
 
 variable "domain_suffix" {
@@ -49,11 +49,6 @@ variable "email" {
 }
 
 variable "hostnames" {
-  description = "Name of the hostname but also user for property and edgehostname"
-  type        = list(string)
-}
-
-variable "mtls_certificate" {
-  description = "mTLS certificate to use with this property"
+  description = "A list of hostnames comma separated"
   type        = string
 }
