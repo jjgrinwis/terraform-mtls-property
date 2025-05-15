@@ -1,9 +1,9 @@
-output "hostname" {
-  description = "Our configured host/property name"
-  value       = var.hostname
+output "hostnames" {
+  description = "Hostnames added to the property"
+  value       = var.hostnames
 }
 
-output "mappings" {
-  description = "Assigned certificate"
-  value       = var.host_mappings
+output "name" {
+  description = "Name the property and cpcode"
+  value       = local.name
 }

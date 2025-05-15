@@ -15,6 +15,7 @@ variable "cpcode" {
   type        = string
   default     = "jgrinwis"
 }
+
 # akamai product to use
 variable "product_name" {
   description = "The Akamai delivery product name"
@@ -44,33 +45,15 @@ variable "group_name" {
 variable "email" {
   description = "Email address of users to inform when property gets created"
   type        = string
+  default     = "test@test.nl"
 }
 
-variable "hostname" {
+variable "hostnames" {
   description = "Name of the hostname but also user for property and edgehostname"
-  type        = string
-}
-
-variable "origin_hostname" {
-  description = "Name of the origin hostname to connect to"
-  type        = string
-}
-
-variable "rule_format" {
-  description = "Select a supported rule format https://techdocs.akamai.com/terraform/docs/rule-format-changes"
-  type        = string
-  default     = "v2025-02-18"
+  type        = list(string)
 }
 
 variable "mtls_certificate" {
   description = "mTLS certificate to use with this property"
   type        = string
-}
-
-variable "host_mappings" {
-  description = "List of hostname to origin mappings"
-  type = list(object({
-    hostname = string
-    origin   = string
-  }))
 }
