@@ -21,3 +21,7 @@ terraform.rc
 
 # local credential file, not needed in repo
 provider.tf
+
+.vscode/
+.terraform.lock.hcl
+snippets-logs.log
