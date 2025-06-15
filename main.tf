@@ -9,12 +9,12 @@ terraform {
 
 locals {
   # to make life as easy as possible, customer can just provide a comma separated list of hostnames.
-  # script will make some nice list of of it
+  # eg: api.pnl-lsp-mservice.a15.great-demo.com, api.pnl-lsp-mservice.p15.great-demo.com
+  # first create some nice list of hostnames.
   raw_list  = split(",", var.hostnames)
   hostnames = [for item in local.raw_list : trimspace(item)]
 
-  # dynamically create property name and cpcode from the first entry in the list
-  # first hostname is used to create the property name and cpcode.
+  # dynamically create property name and cpcode from the first hostname entry in the list
   hostname_parts = regex("^(.+)\\.([a-zA-Z]\\d{2})\\.(.+)$", local.hostnames[0])
   property_name  = format("%s.%s.%s", local.hostname_parts[0], local.hostname_parts[1], local.hostname_parts[2])
 
@@ -45,8 +45,6 @@ resource "akamai_cp_code" "cp_code" {
 
 # as the config will be pretty static, use template file
 # we're going to use all required rules in this tf file.
-# create our edge hostname resource
-
 resource "akamai_property" "aka_property" {
   name        = local.property_name
   contract_id = data.akamai_contract.contract.id

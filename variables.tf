@@ -21,12 +21,20 @@ variable "product_name" {
   description = "The Akamai delivery product name"
   type        = string
   default     = "dsa"
+  validation {
+    condition     = contains(keys(var.aka_products), lower(var.product_name))
+    error_message = "Product name must be one of: ion, dsa, dd."
+  }
 }
 
 variable "domain_suffix" {
   description = "edgehostname suffix"
   type        = string
   default     = "edgekey.net"
+  validation {
+    condition     = contains(["edgekey.net", "edgesuite.net"], var.domain_suffix)
+    error_message = "Domain suffix must be one of: edgekey.net(ESSL), or edgesuite.net(FF)."
+  }
 }
 
 # IPV4, IPV6_PERFORMANCE or IPV6_COMPLIANCE
@@ -34,6 +42,10 @@ variable "ip_behavior" {
   description = "use IPV4 to only use IPv4"
   type        = string
   default     = "IPV6_COMPLIANCE"
+  validation {
+    condition     = contains(["IPV4", "IPV6_PERFORMANCE", "IPV6_COMPLIANCE"], var.ip_behavior)
+    error_message = "IP behavior must be one of: IPV4, IPV6_PERFORMANCE, IPV6_COMPLIANCE."
+  }
 }
 
 # below some required input vars
@@ -46,6 +58,10 @@ variable "email" {
   description = "Email address of users to inform when property gets created"
   type        = string
   default     = "test@test.nl"
+  validation {
+    condition     = can(regex("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", var.email))
+    error_message = "Email must be a valid email address."
+  }
 }
 
 variable "hostnames" {
@@ -68,5 +84,4 @@ variable "security_policy" {
     condition     = contains(["low", "medium", "high"], var.security_policy)
     error_message = "Security policy must be one of: low, medium, high."
   }
-
 }
