@@ -49,6 +49,24 @@ variable "email" {
 }
 
 variable "hostnames" {
-  description = "A list of hostnames comma separated"
+  description = "A list of hostnames, comma separated. These hostnames will be used in the property and will be used to create CNAME records in EdgeDNS."
   type        = string
+  validation {
+    condition = alltrue([
+      for fqdn in split(",", var.hostnames) :
+      can(regex("^\\s*[a-zA-Z0-9-]+\\.[a-zA-Z0-9-]+\\.(p15|a15|r15|s15|t15)\\.great-demo\\.com\\s*$", fqdn))
+    ])
+    error_message = "Each entry in the comma separated list must be a valid hostname in the format hostname.subdomain.domain.tld (e.g., api.pnl-lsp-mservice.a15.great-demo.com)."
+  }
+}
+
+variable "security_policy" {
+  description = "The security policy to use for the property"
+  type        = string
+  default     = "low"
+  validation {
+    condition     = contains(["low", "medium", "high"], var.security_policy)
+    error_message = "Security policy must be one of: low, medium, high."
+  }
+
 }

@@ -2,7 +2,7 @@ terraform {
   required_providers {
     akamai = {
       source  = "akamai/akamai"
-      version = ">= 7.0.0"
+      version = ">= 8.0.0"
     }
   }
 }
@@ -14,8 +14,8 @@ locals {
   hostnames = [for item in local.raw_list : trimspace(item)]
 
   # dynamically create property name and cpcode from the first entry in the list
-  # we might want to add some validation in the variables.tf to make sure correct format is provided.
-  hostname_parts = regex("^([^.]+)\\.s(\\d+)\\.(.+)$", local.hostnames[0])
+  # first hostname is used to create the property name and cpcode.
+  hostname_parts = regex("^(.+)\\.([a-zA-Z]\\d{2})\\.(.+)$", local.hostnames[0])
   property_name  = format("%s.%s.%s", local.hostname_parts[0], local.hostname_parts[1], local.hostname_parts[2])
 
   # using ION as our default product in case wrong product type has been provided as input var.
@@ -69,20 +69,5 @@ resource "akamai_property" "aka_property" {
   rules = templatefile("template/rules.tftpl", { hostnames = local.hostnames, cpcode = tonumber(resource.akamai_cp_code.cp_code.id) })
 }
 
-# just add some CNAMEs for the SBD certificates. Make sure you have the credentials to also update DNS records!
-resource "akamai_dns_record" "dv_cname" {
 
-  # loop through each item in our known hostnames set
-  for_each = toset(local.hostnames)
-
-  # get the key or value, same in this instance 
-  zone = regex("[^.]+\\.[^.]+$", each.key)
-  name = "_acme-challenge.${each.value}"
-
-  # let's lookup target value from our map of maps with value from hostnames[] as key
-  target = [lookup(local.dv_records["_acme-challenge.${each.value}"], "target")]
-
-  recordtype = "CNAME"
-  ttl        = 60
-}
 

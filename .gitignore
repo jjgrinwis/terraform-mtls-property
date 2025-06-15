@@ -18,3 +18,6 @@ crash.log
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+
+# local credential file, not needed in repo
+provider.tf
