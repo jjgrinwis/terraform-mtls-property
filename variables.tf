@@ -52,6 +52,7 @@ variable "ip_behavior" {
 variable "group_name" {
   description = "Akamai group to use this resource in"
   type        = string
+  default     = "Akamai Demo-M-1YX7F61"
 }
 
 variable "email" {
