@@ -77,10 +77,11 @@ variable "hostnames" {
   }
 }
 
+# not setting a default, that should be done in the no code module to it can be easy switched in the UI if needed.
 variable "security_policy" {
   description = "The security policy to use for the property"
   type        = string
-  default     = "low"
+  #default     = "low"
   validation {
     condition     = contains(["low", "medium", "high"], var.security_policy)
     error_message = "Security policy must be one of: low, medium, high."
